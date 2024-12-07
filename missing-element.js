@@ -8,8 +8,8 @@ function onPageLoad()
     reloadButton.addEventListener("click", clearForm);
 
     var exerciceBody = document.getElementById("exercice-wrapper");
-    firstPart = [ 'Uzupełnij brakujące słowo', "J'adore la", "J'aime la", "Je n'aime pas la", 'Je suis', "J'aime le", "Je déteste l'", 'Je ne parle pas' ];
-    secondPart = [ 'W nawiasie polskie znaczenie', '!', '.', '.', '.', '.', '!', '.' ];
+    firstPart = [ 'Uzupełnij', "J'adore la", "J'aime la", "Je n'aime pas la", 'Je suis', "J'aime le", "Je déteste l'", 'Je ne parle pas' ];
+    secondPart = [ 'Podpowiedź w nawiasie', '!', '.', '.', '.', '.', '!', '.' ];
     missingElement = [ 'Les goûts', 'mer', 'pluie', 'bière', 'polonais', 'fromage', 'alcool', 'allemand' ];
     hints = [ "", 'Uwielbiam morze! (3 lettres)', 'Lubię deszcz. (5 lettres)', 'Nie lubię piwa. (5 lettres)', 'Jestem Polakiem. (8 lettres)', 'Lubię ser. (7 lettres)', 'Nie znoszę alkoholu! (6 lettres)', 'Nie mówię po niemiecku. (8 lettres)' ];
 
