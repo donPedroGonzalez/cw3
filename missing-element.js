@@ -8,10 +8,10 @@ function onPageLoad()
     reloadButton.addEventListener("click", clearForm);
 
     var exerciceBody = document.getElementById("exercice-wrapper");
-    firstPart = [ 'Uzupełnij', "J'adore la", "J'aime la", "Je n'aime pas la", 'Je suis', "J'aime le", "Je déteste l'", 'Je ne parle pas' ];
-    secondPart = [ 'Podpowiedź w nawiasie', '!', '.', '.', '.', '.', '!', '.' ];
-    missingElement = [ 'Les goûts', 'mer', 'pluie', 'bière', 'polonais', 'fromage', 'alcool', 'allemand' ];
-    hints = [ "", 'Uwielbiam morze! (3 lettres)', 'Lubię deszcz. (5 lettres)', 'Nie lubię piwa. (5 lettres)', 'Jestem Polakiem. (8 lettres)', 'Lubię ser. (7 lettres)', 'Nie znoszę alkoholu! (6 lettres)', 'Nie mówię po niemiecku. (8 lettres)' ];
+    firstPart = [ "Uzupełnij brakujące słowo", "J'adore la", "J'aime la", "Je n'aime pas la", "Je suis", "J'aime le", "Je déteste l'", "Je ne parle pas", "J'adore la", "J'aime les", "Je n'aime pas le", "Je déteste le", "J'adore la", "J'aime", "J'adore", "Je n'aime pas la", "J'aime le", "Je déteste la", "J'adore", "Je n'aime pas", "J'" ];
+    secondPart = [ "W nawiasie polskie znaczenie", "!", ".", ".", ".", ".", "!", ".", "française.", ".", ".", "!", "classique.", ".", "en France.", ".", ".", "!", "le soir.", "seul.", "les fleurs rouges." ];
+    missingElement = [ "Les goûts", "mer", "pluie", "bière", "polonais", "fromage", "alcool", "allemand", "cuisine", "fleurs", "vin", "bruit", "musique", "danser", "voyager", "montagne", "soleil", "viande", "danser", "voyager", "aime" ];
+    hints = [ "nan", "Uwielbiam morze! (3 lettres)", "Lubię deszcz. (5 lettres)", "Nie lubię piwa. (5 lettres)", "Jestem Polakiem. (8 lettres)", "Lubię ser. (7 lettres)", "Nie znoszę alkoholu! (6 lettres)", "Nie mówię po niemiecku. (8 lettres)", "Uwielbiam kuchnię francuską. (7 lettres)", "Lubię kwiaty. (6 lettres)", "Nie lubię wina. (3 lettres)", "Nie znoszę hałasu! (5 lettres)", "Uwielbiam muzykę klasyczną. (7 lettres)", "Lubię tańczyć. (6 lettres)", "Uwielbiam podróżować po Francji. (7 lettres)", "Nie lubię gór. (8 lettres)", "Lubię słońce. (6 lettres)", "Nie znoszę mięsa! (6 lettres)", "Uwielbiam tańczyć wieczorem. (6 lettres)", "Nie lubię podróżować sam. (7 lettres)", "Lubię czerwone kwiaty. (4 lettres)" ];
 
     var myForm = document.createElement("form");
     myForm.setAttribute("id", "myExercice"); 
@@ -28,16 +28,21 @@ function onPageLoad()
         newItemLabel1.innerText = firstPart[i] + " ";
         newItemLabel2 = document.createElement("label");
         newItemLabel2.setAttribute("for", "item"+i);        
-        newItemLabel2.innerText = " " + secondPart[i] + " (" + hints[i] + ")";          
+        //newItemLabel2.innerText = " " + secondPart[i] + " (" + hints[i] + ")";          
+        newItemLabel2.innerText = "  " + secondPart[i] + "  ";
+        newHintSubItem = document.createElement("span")
+        newHintSubItem.innerText =  "(" + hints[i] + ")";
+        newHintSubItem.setAttribute("style", "font-style: italic; font-size:12pt;")
         newItemInput = document.createElement("input");
         newItemInput.setAttribute("type", "text");        
         newItemInput.setAttribute("name", "item"+i);
         newItemInput.setAttribute("id", "item"+i);
-        newItemInput.setAttribute("style", "min-width: 350px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:16pt;");
+        newItemInput.setAttribute("style", "min-width: 300px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:16pt;");
         var paragraph = document.createElement("p");
         paragraph.appendChild(newItemLabel1);
         paragraph.appendChild(newItemInput);
         paragraph.appendChild(newItemLabel2);
+        paragraph.appendChild(newHintSubItem);
         paragraph.setAttribute("id", "par" + i);
         myForm.appendChild(paragraph);
     }
@@ -127,7 +132,7 @@ function onPageLoad()
             formToCheck = document.getElementById("myExercice");
             itemToCheck = formToCheck.elements[itemName].value;
             // removing old result content if present in case of second, third etc. check button click.
-            var spans = document.getElementById("par"+i).getElementsByTagName("span");
+            var spans = document.getElementById("par"+i).getElementsByClassName("check-answer");
             for (var m = 0; m < spans.length; m++)
             {
                 spans[m].parentNode.removeChild(spans[m]);            
@@ -137,6 +142,7 @@ function onPageLoad()
                 myparagraph = document.createElement("span");
                 myparagraph.setAttribute("id", "answer"+i);
                 myparagraph.setAttribute("style", "color:red;");
+                myparagraph.setAttribute("class", "check-answer");
                 myparagraph.innerText = " - La réponse correcte : " + missingElement[i];
                 
                 document.getElementById("par"+i).appendChild(myparagraph);
@@ -145,6 +151,7 @@ function onPageLoad()
                 myparagraph = document.createElement("span");
                 myparagraph.setAttribute("id", "answer"+i);
                 myparagraph.setAttribute("style", "color:green;");
+                myparagraph.setAttribute("class", "check-answer");
                 myparagraph.innerText = " - C'est correct, félicitations !";
                 document.getElementById("par"+i).appendChild(myparagraph);
                 correctNumber++;
@@ -163,7 +170,7 @@ function onPageLoad()
             formToClear = document.getElementById("myExercice");
             formToClear.reset();
             // removing old result content if present in case of second, third etc. check button click.
-            var spans = document.getElementById("par"+i).getElementsByTagName("span");
+            var spans = document.getElementById("par"+i).getElementsByClassName("check-answer");
             for (var m = 0; m < spans.length; m++)
             {
                 spans[m].parentNode.removeChild(spans[m]);            

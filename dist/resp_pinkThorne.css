@@ -10,15 +10,15 @@
 	 border-radius: 0.5rem;
 }
  .header {
-	 background-color: #965b09 !important;
+	 background-color: #c8458b !important;
 	 color: white !important;
 }
  .side-main {
 	 grid-row: 2/ span 2;
-	 background-color: #d3d0cb;
+	 background-color: #ffffff;
 }
  .header:nth-child(even) {
-	 background-color: #663e06 !important;
+	 background-color: #a83271 !important;
 	 color: white !important;
 }
  .footer {
@@ -26,11 +26,11 @@
 	 align-content: center;
 	 justify-content: center;
 	 font-size: larger;
-	 background-color: #c60cb7 !important;
+	 background-color: #6d70d3 !important;
 	 color: white !important;
 }
  .footer:nth-child(even) {
-	 background-color: #96098a !important;
+	 background-color: #454ac8 !important;
 	 color: white !important;
 }
  .hidden {
@@ -51,7 +51,7 @@
 	 align-content: center;
 	 justify-content: center;
 	 font-size: xx-large;
-	 text-shadow: 0px 0px 5px #925b0d;
+	 text-shadow: 0px 0px 5px #c24b8b;
 }
 #o-mnie-footer {
 	 justify-content: center;
@@ -63,7 +63,7 @@
 	 display: inline-flex;
 	 justify-content: space-between;
 	 align-content: center;
-	 background-color: #af9f89;
+	 background-color: #d3d3d3;
 	 font-size: larger;
 	 margin: 0;
 	 padding: 0;
@@ -82,7 +82,7 @@
 }
  #main-window-body {
 	 display: grid;
-	 background-color: #bcb7af;
+	 background-color: #ededed;
 	 overflow-y: auto;
 }
  #exercice-wrapper {
@@ -108,7 +108,7 @@
  #keyboard {
 	 position: fixed;
 	 background-color: #f0f0f0;
-	 border: 2px solid #663e06;
+	 border: 2px solid #a83271;
 	 padding: 10px;
 	 box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 	 border-radius: 5px;
@@ -296,7 +296,7 @@
  #result-wrapper {
 	 padding: 10px;
 	 margin-top: 20px;
-	 background-color: #d3d0cb;
+	 background-color: #ffffff;
 	 border-radius: 5px;
 	 text-align: center;
 }
